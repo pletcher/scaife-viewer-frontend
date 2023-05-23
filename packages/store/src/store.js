@@ -225,11 +225,13 @@ const createStore = client => {
         },
         [HIGHLIGHT_TRANSCRIPTION]: (state, ref) => {
           state.highlightedTranscription = ref;
+          state.selectedLine = ref;
         },
         [SET_SELECTED_LEMMAS]: (state, { lemmas }) => {
           state.selectedLemmas = lemmas;
         },
         [SELECT_LINE]: (state, ref) => {
+          state.highlightedTranscription = ref;
           state.selectedLine = ref;
         },
         [STOP_AUDIO]: state => {

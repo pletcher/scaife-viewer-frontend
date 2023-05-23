@@ -15,13 +15,8 @@
           <a :id="`${reference}-full-page`" class="link" title="Toggle full page">
             <icon name="window-maximize" />
           </a>
-          <a
-            :id="`${reference}-highlight-roi`"
-            class="link"
-            :class="{active: showClickableRois}"
-            title="Highlight regions of interest"
-            @click.prevent="showClickableRois = !showClickableRois"
-          >
+          <a :id="`${reference}-highlight-roi`" class="link" :class="{ active: showClickableRois }"
+            title="Highlight regions of interest" @click.prevent="showClickableRois = !showClickableRois">
             <icon name="highlighter" />
           </a>
         </small>
@@ -232,8 +227,10 @@ function createRect(coordinatesValue, viewer) {
 
   .open-seadragon {
     padding-left: 1rem;
-    border-left: 1px solid var(--sv-reader-image-mode-wide-layout-openseadragon-border-color,
-        #dee2e6);
+    border-left: 1px solid var(
+      --sv-reader-image-mode-wide-layout-openseadragon-border-color,
+      #dee2e6
+    );
   }
 
   .image .open-seadragon {
@@ -243,7 +240,10 @@ function createRect(coordinatesValue, viewer) {
 }
 
 .roi-clickable {
-  border: 4px solid lightgoldenrodyellow;
+  border: 4px solid var(
+    --sv-widget-reader-dictionary-resolved-background-color,
+    #9ad5f5
+  );
   opacity: 0.1;
   cursor: pointer;
 
@@ -253,7 +253,10 @@ function createRect(coordinatesValue, viewer) {
 }
 
 .roi-highlight {
-  border: 4px solid darkslategray;
+  border: 4px solid var(
+    --sv-widget-reader-token-selected-entity-shadow-color,
+    #9f9
+  );
   opacity: 0.6;
 }
 </style>
@@ -272,6 +275,7 @@ function createRect(coordinatesValue, viewer) {
 
   $link-base-color: var(--sv-reader-image-mode-openseadragon-hover-link-text-color, #fff);
   $link-highlight-color: var(--sv-reader-image-mode-openseadragon-hover-link-background-color, #b45141);
+
   .link {
     font-size: 18px;
     cursor: pointer;

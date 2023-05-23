@@ -41,7 +41,7 @@
     methods: {
       onLineSelect() {
         this.$store.dispatch(`${MODULE_NS}/${SELECT_LINE}`, {
-          ref: `${this.urn.version}${this.textPart.ref}`,
+          ref: this.textPart.ref,
         });
       },
     },
@@ -105,7 +105,10 @@
     align-items: baseline;
 
     .highlight {
-      background: yellow;
+      background: var(
+        --sv-widget-reader-token-selected-entity-shadow-color,
+        #9f9
+      );
     }
     .line-ref {
       font-size: 10pt;
